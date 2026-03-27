@@ -2,133 +2,138 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Digital TOR Handbook - มาตรฐานงานถมดินฉบับสมบูรณ์ (Kanit Edition)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { font-family: 'Kanit', sans-serif; scroll-behavior: smooth; font-size: 1.1rem; }
+        body { font-family: 'Kanit', sans-serif; font-size: 1.1rem; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* ปรับสี Tab ให้มีมิติขึ้น */
-        .tab-btn { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; transition: all 0.2s ease; }
-        .tab-btn:hover { background-color: #e2e8f0; }
-        .tab-active { background-color: #1e40af !important; color: white !important; border-color: #1e40af !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2); }
-        .ai-tab-active { background-color: #4338ca !important; color: white !important; border-color: #4338ca !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(67, 56, 202, 0.2); }
+        /* ปรับสี Tab ให้เห็นชัดเจน ไม่กลืนกับพื้นหลัง */
+        .tab-btn { 
+            background-color: #e2e8f0; /* สี Slate-200 ชัดเจน */
+            color: #475569; 
+            border: 1px solid #cbd5e1;
+            transition: all 0.2s ease;
+        }
+        .tab-btn:hover { background-color: #cbd5e1; }
+        
+        /* Tab ที่ถูกเลือก */
+        .tab-active { 
+            background-color: #1e40af !important; 
+            color: white !important; 
+            border-color: #1e40af !important; 
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+        }
+        .ai-tab-active { 
+            background-color: #4338ca !important; 
+            color: white !important; 
+            border-color: #4338ca !important; 
+            box-shadow: 0 4px 12px rgba(67, 56, 202, 0.3);
+        }
         
         .fade-in { animation: fadeIn 0.4s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
-        
         /* ปุ่มส่ง AI แบบจาง */
-        .btn-send:disabled { background-color: #e2e8f0; color: #94a3b8; cursor: not-allowed; shadow: none; }
+        .btn-send:disabled { background-color: #f1f5f9; color: #cbd5e1; cursor: not-allowed; border-color: #e2e8f0; }
     </style>
 </head>
-<body class="bg-[#F8FAFC] text-slate-900">
+<body class="bg-[#F8FAFC] text-slate-900 overflow-x-hidden">
 
     <!-- Header Section -->
-    <header class="bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-950 text-white py-12 md:py-20 px-6 relative overflow-hidden">
+    <header class="bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-950 text-white py-10 md:py-16 px-4 md:px-6 relative overflow-hidden">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center relative z-10">
-            <div class="text-center md:text-left mb-8 md:mb-0">
-                <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
-                    <span class="bg-yellow-400 text-blue-900 text-sm font-bold px-4 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
-                        <i data-lucide="sparkles" class="w-4 h-4"></i> VERSION 2.1 (DETAILED)
+            <div class="text-center md:text-left mb-6 md:mb-0">
+                <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                    <span class="bg-yellow-400 text-blue-900 text-xs font-bold px-4 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i> VERSION 2.2 (MOBILE OPTIMIZED)
                     </span>
                 </div>
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">Digital TOR Handbook <br><span class="text-blue-400 italic">งานถมดิน & บดอัด</span></h1>
-                <p class="text-blue-100/80 text-lg md:text-2xl max-w-3xl leading-relaxed">วิเคราะห์เจาะลึกจากเอกสาร 5 ฉบับ เพื่อมาตรฐานสูงสุดในการประมูลและควบคุมงาน</p>
+                <h1 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight tracking-tight">Digital TOR Handbook <br><span class="text-blue-400">งานถมดิน & บดอัด</span></h1>
+                <p class="text-blue-100/80 text-base md:text-xl max-w-2xl leading-relaxed">วิเคราะห์เจาะลึกจากเอกสาร 5 ฉบับ เพื่อมาตรฐานสูงสุดในการประมูลและควบคุมงาน</p>
             </div>
             
-            <div class="flex flex-col gap-4 w-full md:w-auto">
-                <div class="bg-white/10 backdrop-blur-md p-8 rounded-[2rem] border border-white/20 flex items-center gap-5 shadow-2xl">
-                    <div class="bg-emerald-500 p-4 rounded-2xl shadow-inner">
-                        <i data-lucide="shield-check" class="text-white w-10 h-10"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs uppercase opacity-70 font-bold tracking-[0.2em] mb-1">มาตรฐานโครงการ</p>
-                        <p class="text-2xl font-bold">Verified TOR 2026</p>
-                    </div>
+            <div class="hidden md:flex bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 items-center gap-5 shadow-2xl">
+                <div class="bg-emerald-500 p-3 rounded-2xl">
+                    <i data-lucide="shield-check" class="text-white w-8 h-8"></i>
+                </div>
+                <div>
+                    <p class="text-[10px] uppercase opacity-70 font-bold tracking-widest mb-1">มาตรฐานโครงการ</p>
+                    <p class="text-xl font-bold">Verified TOR 2026</p>
                 </div>
             </div>
         </div>
         <i data-lucide="truck" class="absolute -bottom-10 -left-10 w-80 h-80 text-white/5 -rotate-12"></i>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 md:px-6 -mt-12 relative z-20 pb-32">
+    <main class="max-w-7xl mx-auto px-4 md:px-6 -mt-8 relative z-20 pb-20">
         
-        <!-- Smart Navigation Menu -->
-        <div class="flex gap-3 overflow-x-auto pb-6 no-scrollbar mb-10 sticky top-4 z-30">
-            <button onclick="switchTab('overview')" id="tab-overview" class="tab-btn flex items-center gap-3 px-8 py-5 rounded-2xl font-bold whitespace-nowrap">
-                <i data-lucide="layout" class="w-6 h-6"></i> ภาพรวมสัญญา
+        <!-- Smart Navigation Menu: เลื่อนได้ในมือถือ -->
+        <div class="flex gap-2 overflow-x-auto pb-4 no-scrollbar mb-8 sticky top-2 z-30">
+            <button onclick="switchTab('overview')" id="tab-overview" class="tab-btn flex items-center gap-2 px-6 py-4 rounded-2xl font-bold whitespace-nowrap">
+                <i data-lucide="layout" class="w-5 h-5"></i> ภาพรวมสัญญา
             </button>
-            <button onclick="switchTab('quality')" id="tab-quality" class="tab-btn flex items-center gap-3 px-8 py-5 rounded-2xl font-bold whitespace-nowrap">
-                <i data-lucide="microscope" class="w-6 h-6"></i> มาตรฐานดิน & Lab
+            <button onclick="switchTab('quality')" id="tab-quality" class="tab-btn flex items-center gap-2 px-6 py-4 rounded-2xl font-bold whitespace-nowrap">
+                <i data-lucide="microscope" class="w-5 h-5"></i> มาตรฐานดิน & Lab
             </button>
-            <button onclick="switchTab('engineering')" id="tab-engineering" class="tab-btn flex items-center gap-3 px-8 py-5 rounded-2xl font-bold whitespace-nowrap">
-                <i data-lucide="ruler" class="w-6 h-6"></i> เทคนิควิศวกรรม
+            <button onclick="switchTab('engineering')" id="tab-engineering" class="tab-btn flex items-center gap-2 px-6 py-4 rounded-2xl font-bold whitespace-nowrap">
+                <i data-lucide="ruler" class="w-5 h-5"></i> เทคนิควิศวกรรม
             </button>
-            <button onclick="switchTab('procedures')" id="tab-procedures" class="tab-btn flex items-center gap-3 px-8 py-5 rounded-2xl font-bold whitespace-nowrap">
-                <i data-lucide="clipboard-list" class="w-6 h-6"></i> ขั้นตอนหน้างาน
+            <button onclick="switchTab('procedures')" id="tab-procedures" class="tab-btn flex items-center gap-2 px-6 py-4 rounded-2xl font-bold whitespace-nowrap">
+                <i data-lucide="clipboard-list" class="w-5 h-5"></i> ขั้นตอนหน้างาน
             </button>
-            <button onclick="switchTab('calculator')" id="tab-calculator" class="tab-btn flex items-center gap-3 px-8 py-5 rounded-2xl font-bold whitespace-nowrap">
-                <i data-lucide="calculator" class="w-6 h-6"></i> คำนวณค่าเผื่อ
+            <button onclick="switchTab('calculator')" id="tab-calculator" class="tab-btn flex items-center gap-2 px-6 py-4 rounded-2xl font-bold whitespace-nowrap">
+                <i data-lucide="calculator" class="w-5 h-5"></i> คำนวณค่าเผื่อ
             </button>
-            <button onclick="switchTab('ai')" id="tab-ai" class="tab-btn flex items-center gap-3 px-8 py-5 rounded-2xl font-bold text-indigo-700 border-2 border-indigo-100 whitespace-nowrap">
-                <i data-lucide="bot" class="w-6 h-6"></i> ✨ ผู้ช่วยวิศวกร AI
+            <button onclick="switchTab('ai')" id="tab-ai" class="tab-btn flex items-center gap-2 px-6 py-4 rounded-2xl font-bold text-indigo-700 border-2 border-indigo-100 whitespace-nowrap">
+                <i data-lucide="bot" class="w-5 h-5"></i> ✨ ถาม AI
             </button>
         </div>
 
-        <div id="content-container">
+        <div id="content-container" class="max-w-full">
             
-            <!-- SECTION 1: OVERVIEW & LEGAL -->
-            <section id="sec-overview" class="content-sec fade-in space-y-8">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div class="lg:col-span-2 bg-white p-10 md:p-12 rounded-[3rem] shadow-sm border border-slate-200 card-hover">
-                        <h3 class="text-3xl font-bold text-blue-900 mb-8 flex items-center gap-3"><i data-lucide="file-text" class="text-blue-600 w-8 h-8"></i> เงื่อนไขสัญญาจ้างและบทลงโทษ</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div class="space-y-6">
-                                <div class="p-6 bg-blue-50 rounded-[2rem] border border-blue-100">
-                                    <p class="font-bold text-blue-800 text-lg mb-2">วิศวกรควบคุมงาน (ข้อ 3)</p>
-                                    <p class="text-base text-slate-600 leading-relaxed">ต้องส่งสำเนาใบอนุญาต (กว.) และหนังสือรับรองการเป็นผู้ควบคุมงาน หากเปลี่ยนแปลงคนต้องแจ้งเป็นลายลักษณ์อักษรทันที</p>
-                                </div>
-                                <div class="p-6 bg-red-50 rounded-[2rem] border border-red-100">
-                                    <p class="font-bold text-red-800 text-lg mb-2">บทลงโทษการทำผิดเงื่อนไข (ข้อ 2)</p>
-                                    <p class="text-base text-red-700 leading-relaxed font-semibold underline decoration-red-200">หากผู้รับจ้างไม่ดำเนินการแก้ไขใบอนุญาตให้สอดคล้องกับสัญญา ผู้ว่าจ้างมีสิทธิ์ยึดเงินประกันสัญญา และประกันผลงานทันที</p>
-                                </div>
+            <!-- SECTION 1: OVERVIEW -->
+            <section id="sec-overview" class="content-sec fade-in space-y-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2 bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-slate-200">
+                        <h3 class="text-2xl font-bold text-blue-900 mb-6 flex items-center gap-3"><i data-lucide="file-text" class="text-blue-600"></i> สรุปเงื่อนไขสำคัญ</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="p-6 bg-blue-50 rounded-2xl border border-blue-100">
+                                <p class="font-bold text-blue-800 text-lg mb-2">วิศวกรควบคุมงาน (ข้อ 3)</p>
+                                <p class="text-sm text-slate-600 leading-relaxed font-medium">ต้องขึ้นทะเบียนสภาวิศวกร และส่งเอกสาร กว. ก่อนเริ่มงาน ห้ามเปลี่ยนวิศวกรโดยไม่แจ้งล่วงหน้า</p>
                             </div>
-                            <div class="space-y-6">
-                                <div class="p-6 bg-emerald-50 rounded-[2rem] border border-emerald-100">
-                                    <p class="font-bold text-emerald-800 text-lg mb-2">การชำระเงิน (ข้อ 26)</p>
-                                    <p class="text-base text-slate-600 leading-relaxed">จ่ายเงินภายใน 7 วัน (วันอังคารถัดไป) หลังจากส่งงวดและผ่านการตรวจสอบ โดยพิจารณาอนุมัติข้อมูลที่ครบถ้วนเท่านั้น</p>
-                                </div>
-                                <div class="p-6 bg-slate-50 rounded-[2rem] border border-slate-200">
-                                    <p class="font-bold text-slate-800 text-lg mb-2">การค้ำประกันสัญญา (ข้อ 28-30)</p>
-                                    <ul class="text-base text-slate-600 space-y-2">
-                                        <li>• ค้ำประกันรับงาน: วางภายใน 3 วันทำการ</li>
-                                        <li>• ประกันสัญญา: หักงวดแรกหรือวาง L.G.</li>
-                                        <li>• ประกันผลงาน: หักไว้ 5% เป็นเวลา 12 เดือน</li>
-                                    </ul>
-                                </div>
+                            <div class="p-6 bg-red-50 rounded-2xl border border-red-100">
+                                <p class="font-bold text-red-800 text-lg mb-2">บทลงโทษ (ข้อ 2)</p>
+                                <p class="text-sm text-red-700 font-bold leading-relaxed">หากทำผิดเงื่อนไขใบอนุญาตถมดิน ผู้ว่าจ้างมีสิทธิ์ยึดเงินประกันสัญญาและประกันผลงานทันที</p>
+                            </div>
+                            <div class="p-6 bg-emerald-50 rounded-2xl border border-emerald-100">
+                                <p class="font-bold text-emerald-800 text-lg mb-2">การจ่ายเงิน (ข้อ 26)</p>
+                                <p class="text-sm text-slate-600 leading-relaxed font-bold italic">ชำระภายใน 7 วัน (วันอังคารถัดไป) หลังโครงการตรวจสอบผ่าน</p>
+                            </div>
+                            <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                                <p class="font-bold text-slate-800 text-lg mb-2">การค้ำประกันสัญญา</p>
+                                <ul class="text-xs text-slate-600 space-y-1 font-medium">
+                                    <li>• ค้ำประกันรับงาน: วางภายใน 3 วัน</li>
+                                    <li>• ประกันสัญญา: หักงวดแรกหรือวาง L.G.</li>
+                                    <li>• ประกันผลงาน: หักไว้ 5% 12 เดือน</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-blue-900 text-white p-10 rounded-[3rem] shadow-xl relative overflow-hidden flex flex-col justify-center">
-                        <h3 class="text-2xl font-bold mb-8 italic">Timeline งวดงานเร่งด่วน</h3>
-                        <div class="space-y-8 relative z-10">
-                            <div class="flex gap-5">
-                                <div class="w-10 h-10 bg-blue-500 rounded-2xl flex items-center justify-center font-bold shrink-0 shadow-lg">1</div>
-                                <div><p class="font-bold text-lg">Survey (ข้อ 24)</p><p class="text-sm opacity-70 italic font-light">วัดระดับและคำนวณดินภายใน 10 วันหลังเคลียร์พื้นที่เสร็จ</p></div>
+                    <div class="bg-blue-900 text-white p-8 rounded-[2.5rem] shadow-xl flex flex-col justify-center">
+                        <h3 class="text-xl font-bold mb-8">Timeline งวดงานเร่ง</h3>
+                        <div class="space-y-8">
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center font-bold shadow-lg shrink-0">1</div>
+                                <div><p class="font-bold text-lg leading-tight">สำรวจ (Survey)</p><p class="text-xs opacity-70">วัดระดับดินเดิมภายใน 10 วันหลังเคลียร์พื้นที่</p></div>
                             </div>
-                            <div class="flex gap-5">
-                                <div class="w-10 h-10 bg-yellow-400 text-blue-900 rounded-2xl flex items-center justify-center font-bold shrink-0 shadow-lg">2</div>
-                                <div><p class="font-bold text-lg">โซนบ้านตัวอย่าง 5 ไร่</p><p class="text-sm font-bold text-yellow-300 italic underline">ต้องเสร็จภายใน 10 วันนับจากวันเริ่มสัญญา</p></div>
-                            </div>
-                            <div class="flex gap-5">
-                                <div class="w-10 h-10 bg-blue-500 rounded-2xl flex items-center justify-center font-bold shrink-0 shadow-lg">3</div>
-                                <div><p class="font-bold text-lg">ส่งมอบงานทั้งหมด</p><p class="text-sm opacity-70">ภายในระยะเวลาที่กำหนดในสัญญา</p></div>
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 bg-yellow-400 text-blue-900 rounded-xl flex items-center justify-center font-bold shadow-lg shrink-0">2</div>
+                                <div><p class="font-bold text-lg leading-tight text-yellow-300 underline">บ้านตัวอย่าง 5 ไร่</p><p class="text-xs font-bold text-yellow-300">ต้องเสร็จภายใน 10 วันนับจากเริ่มสัญญา</p></div>
                             </div>
                         </div>
                     </div>
@@ -136,35 +141,35 @@
             </section>
 
             <!-- SECTION 2: SOIL QUALITY -->
-            <section id="sec-quality" class="content-sec hidden fade-in space-y-8">
+            <section id="sec-quality" class="content-sec hidden fade-in space-y-6">
                 <div class="bg-white p-10 md:p-12 rounded-[3.5rem] shadow-sm border border-slate-200">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
-                        <h2 class="text-3xl font-bold text-blue-900 flex items-center gap-3"><i data-lucide="droplets" class="text-blue-500 w-8 h-8"></i> มาตรฐานคุณภาพดิน (ข้อ 1)</h2>
-                        <div class="px-6 py-2.5 bg-red-100 text-red-700 rounded-2xl text-sm font-black tracking-widest uppercase border border-red-200">
-                            ห้ามดินปนทรายหรือดินเลนชายทะเล
+                        <h2 class="text-3xl font-bold text-blue-900 flex items-center gap-3"><i data-lucide="droplets" class="text-blue-500 w-8 h-8"></i> คุณภาพดิน (PDF 0)</h2>
+                        <div class="px-6 py-2.5 bg-red-100 text-red-700 rounded-2xl text-sm font-black tracking-widest uppercase border border-red-200 animate-pulse">
+                            ห้ามดินปนทรายหรือดินเลน
                         </div>
                     </div>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                        <div class="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 text-center card-hover">
-                            <p class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-3">ความเป็นกรด-ด่าง</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                        <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">
+                            <p class="text-xs font-black text-slate-400 uppercase tracking-widest mb-3">ความเป็นกรด-ด่าง</p>
                             <p class="text-5xl font-black text-blue-600">6.0-7.5</p>
-                            <p class="text-sm mt-3 text-slate-500 font-medium">เหมาะสมต่อการปลูกต้นไม้</p>
+                            <p class="text-sm mt-3 text-slate-500 font-medium">ปลูกต้นไม้ได้</p>
                         </div>
-                        <div class="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 text-center card-hover">
-                            <p class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-3">ความเค็ม (EC)</p>
+                        <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">
+                            <p class="text-xs font-black text-slate-400 uppercase tracking-widest mb-3">ความเค็ม (EC)</p>
                             <p class="text-5xl font-black text-emerald-600">≤ 2</p>
-                            <p class="text-sm mt-3 text-slate-500 font-medium">หน่วย: mmho/cm</p>
+                            <p class="text-sm mt-3 text-slate-500 font-medium">mmho/cm</p>
                         </div>
-                        <div class="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 text-center card-hover">
-                            <p class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-3">การสุ่มทดสอบ</p>
+                        <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">
+                            <p class="text-xs font-black text-slate-400 uppercase tracking-widest mb-3">สุ่มส่งแล็บ</p>
                             <p class="text-5xl font-black text-purple-600">3 ชุด</p>
-                            <p class="text-sm mt-3 text-slate-500 font-medium">ต่อหนึ่งแหล่งดิน (Lab Test)</p>
+                            <p class="text-sm mt-3 text-slate-500 font-medium">ต่อหนึ่งแหล่งดิน</p>
                         </div>
-                        <div class="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 text-center card-hover">
-                            <p class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-3">สเปกเครื่องจักร</p>
+                        <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">
+                            <p class="text-xs font-black text-slate-400 uppercase tracking-widest mb-3">เกรดเครื่องจักร</p>
                             <p class="text-5xl font-black text-slate-800">D4+</p>
-                            <p class="text-sm mt-3 text-slate-500 font-medium">ต้องปรับเกลี่ยชั้นดินได้จริง</p>
+                            <p class="text-sm mt-3 text-slate-500 font-medium">ต้องปรับเกลี่ยได้</p>
                         </div>
                     </div>
 
@@ -175,18 +180,18 @@
                                     <i data-lucide="bot" class="w-10 h-10"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-2xl font-bold">✨ ระบบประเมินใบรายงานแล็บดิน (AI)</h3>
-                                    <p class="text-indigo-200 text-sm">ป้อนข้อมูล pH และ EC เพื่อตรวจสอบเกณฑ์มาตรฐาน TOR</p>
+                                    <h3 class="text-2xl font-bold">✨ ระบบวิเคราะห์ผลแล็บดิน (AI)</h3>
+                                    <p class="text-indigo-200 text-sm">ตรวจสอบมาตรฐาน pH และ EC ก่อนนำดินเข้าพื้นที่</p>
                                 </div>
                             </div>
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                                <textarea id="soil-lab-input" placeholder="พิมพ์ค่า pH, EC จากใบแล็บ..." class="w-full h-48 bg-white/10 border border-white/20 rounded-[2rem] p-8 text-lg outline-none focus:ring-4 focus:ring-yellow-400/50 transition-all placeholder:text-indigo-300"></textarea>
+                                <textarea id="soil-lab-input" placeholder="พิมพ์ค่า pH และ EC จากใบแล็บ..." class="w-full h-48 bg-white/10 border border-white/20 rounded-[2rem] p-8 text-lg outline-none focus:ring-4 focus:ring-yellow-400/50 transition-all placeholder:text-indigo-300"></textarea>
                                 <div id="soil-analysis-result" class="bg-white/5 rounded-[2rem] p-8 border border-white/10 text-lg overflow-y-auto backdrop-blur-md flex items-center justify-center italic text-indigo-200 text-center leading-relaxed">
-                                    รอข้อมูลเพื่อทำการวิเคราะห์...
+                                    รอรับข้อมูลเพื่อวินิจฉัย...
                                 </div>
                             </div>
-                            <button onclick="analyzeSoil()" id="soil-analyze-btn" class="mt-8 bg-yellow-400 text-indigo-950 font-black py-5 px-12 rounded-2xl hover:bg-yellow-300 transition-all flex items-center gap-3 shadow-xl shadow-yellow-400/30 active:scale-95 text-lg">
-                                <i data-lucide="zap" class="w-6 h-6"></i> วิเคราะห์ผลทดสอบดิน
+                            <button onclick="analyzeSoil()" id="soil-analyze-btn" class="mt-8 bg-yellow-400 text-indigo-950 font-black py-5 px-12 rounded-2xl hover:bg-yellow-300 transition-all flex items-center gap-3 shadow-xl active:scale-95 text-lg">
+                                <i data-lucide="zap" class="w-6 h-6"></i> วิเคราะห์มาตรฐานดิน
                             </button>
                         </div>
                     </div>
@@ -194,54 +199,48 @@
             </section>
 
             <!-- SECTION 3: ENGINEERING -->
-            <section id="sec-engineering" class="content-sec hidden fade-in space-y-8">
+            <section id="sec-engineering" class="content-sec hidden fade-in space-y-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-200">
-                        <h3 class="text-2xl font-bold text-blue-900 mb-8 flex items-center gap-3"><i data-lucide="layers" class="text-blue-600 w-8 h-8"></i> การบดอัดแยกตามพื้นที่ (PDF 4)</h3>
+                        <h3 class="text-2xl font-bold text-blue-900 mb-8 flex items-center gap-3"><i data-lucide="layers" class="text-blue-600 w-8 h-8"></i> ความหนาและการบดอัด (PDF 4)</h3>
                         <div class="space-y-6">
                             <div class="p-8 bg-blue-50/50 rounded-[2.5rem] border border-blue-100">
                                 <div class="flex justify-between items-center mb-4">
-                                    <p class="font-bold text-blue-800 text-xl">แนวถนน (Roads)</p>
-                                    <span class="text-xs bg-blue-600 text-white px-3 py-1 rounded-full font-bold">95% Std. Proctor</span>
+                                    <p class="font-bold text-blue-800 text-xl font-kanit">แนวถนน (Roads)</p>
+                                    <span class="text-xs bg-blue-600 text-white px-3 py-1 rounded-full font-bold">≥ 95% Standard Proctor</span>
                                 </div>
-                                <ul class="text-base text-slate-700 space-y-3">
-                                    <li>• หนาไม่เกิน <strong>0.60 ม.</strong> ต่อชั้น (ก่อนบดอัด)</li>
-                                    <li>• ดินลูกรัง: รถบดล้อเหล็ก 10 ตัน</li>
-                                    <li>• ดินเหนียว: รถบดตีนแกะ (Sheep Foot)</li>
-                                    <li>• ต้องตรวจ Sand Cone Test ทุกๆ <strong>2,500 ตร.ม./ชั้น</strong></li>
+                                <ul class="text-base text-slate-700 space-y-3 font-medium">
+                                    <li class="flex gap-3"><span>•</span> หนาไม่เกิน <strong>0.60 เมตร</strong> ต่อชั้น</li>
+                                    <li class="flex gap-3"><span>•</span> ดินลูกรัง: รถบดล้อเหล็ก 10 ตัน</li>
+                                    <li class="flex gap-3"><span>•</span> ดินเหนียว: รถบดตีนแกะ (Sheep Foot)</li>
                                 </ul>
                             </div>
                             <div class="p-8 bg-emerald-50/50 rounded-[2.5rem] border border-emerald-100">
                                 <div class="flex justify-between items-center mb-4">
-                                    <p class="font-bold text-emerald-800 text-xl">แปลงบ้าน (Plots)</p>
+                                    <p class="font-bold text-emerald-800 text-xl font-kanit">แปลงบ้าน (Plots)</p>
                                     <span class="text-xs bg-emerald-600 text-white px-3 py-1 rounded-full font-bold">D4 ย่ำ ≥ 3 รอบ</span>
                                 </div>
-                                <ul class="text-base text-slate-700 space-y-3">
-                                    <li>• หนาไม่เกิน <strong>1.20 ม.</strong> ต่อชั้น (ก่อนบดอัด)</li>
-                                    <li>• ดิน CBR ≥ 4% หนาได้ถึง 30-60 ซม. (อ้างอิง Rev.251216)</li>
-                                    <li>• ใช้แทรกเตอร์ D4 หรือ PC120 ขึ้นไป</li>
+                                <ul class="text-base text-slate-700 space-y-3 font-medium">
+                                    <li class="flex gap-3"><span>•</span> หนาไม่เกิน <strong>1.20 เมตร</strong> ต่อชั้น</li>
+                                    <li class="flex gap-3"><span>•</span> ดิน CBR ≥ 4% หนาไม่เกิน 30-60 ซม.</li>
+                                    <li class="flex gap-3"><span>•</span> ใช้แทรกเตอร์ D4 หรือ PC120 ขึ้นไป</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
                     <div class="bg-slate-900 text-white p-10 rounded-[3rem] shadow-2xl flex flex-col">
-                        <h3 class="text-2xl font-bold mb-8 flex items-center gap-3"><i data-lucide="table-2" class="text-yellow-400 w-8 h-8"></i> ตารางชนิดดินและ OMC (PDF 3)</h3>
+                        <h3 class="text-2xl font-bold mb-8 flex items-center gap-3"><i data-lucide="table-2" class="text-yellow-400 w-8 h-8"></i> ตารางชนิดดิน OMC & CBR (PDF 3)</h3>
                         <div class="flex-1 overflow-x-auto">
                             <table class="w-full text-base border-collapse">
-                                <thead>
-                                    <tr class="text-slate-500 border-b border-white/10 uppercase tracking-widest text-xs">
-                                        <th class="p-4 text-left font-bold">กลุ่มดิน</th>
-                                        <th class="p-4 text-left font-bold">การบดอัด / เครื่องจักร</th>
-                                        <th class="p-4 text-right font-bold">OMC %</th>
-                                    </tr>
+                                <thead class="text-slate-500 border-b border-white/10 text-xs uppercase tracking-widest">
+                                    <tr><th class="p-4 text-left font-bold">กลุ่มดิน</th><th class="p-4 text-left font-bold">เครื่องจักร</th><th class="p-4 text-right font-bold">OMC %</th><th class="p-4 text-right font-bold">CBR</th></tr>
                                 </thead>
                                 <tbody class="divide-y divide-white/5 font-medium">
-                                    <tr><td class="p-4 font-bold text-yellow-400">GW/GP</td><td class="p-4">ดี, รถแทรกเตอร์/รถล้อยาง/ล้อเหล็ก</td><td class="p-4 text-right">11-18</td></tr>
-                                    <tr><td class="p-4 font-bold text-yellow-400">GM/GC</td><td class="p-4">ดี, รถล้อยาง/รถบดตีนแกะ</td><td class="p-4 text-right">8-14</td></tr>
-                                    <tr><td class="p-4 font-bold text-yellow-400">SM/SC</td><td class="p-4">ดี, ต้องคุมงานเข้มงวด/ตีนแกะ</td><td class="p-4 text-right">11-19</td></tr>
-                                    <tr><td class="p-4 font-bold text-yellow-400">ML/CL</td><td class="p-4">ดีหรือเลว, คุมงานสำคัญมาก/ตีนแกะ</td><td class="p-4 text-right">12-24</td></tr>
-                                    <tr class="bg-red-900/20"><td class="p-4 font-bold text-red-400">PT</td><td class="p-4" colspan="2">ดินอินทรีย์สูง (ห้ามนำมาบดอัด)</td></tr>
+                                    <tr class="hover:bg-white/5"><td class="p-4 font-bold text-yellow-400">GW/GP</td><td class="p-4">แทรกเตอร์/ล้อเหล็ก</td><td class="p-4 text-right">11-18</td><td class="p-4 text-right">25-80</td></tr>
+                                    <tr class="hover:bg-white/5"><td class="p-4 font-bold text-yellow-400">SM/SC</td><td class="p-4">ล้อยาง/ตีนแกะ</td><td class="p-4 text-right">11-19</td><td class="p-4 text-right">10-40</td></tr>
+                                    <tr class="hover:bg-white/5"><td class="p-4 font-bold text-yellow-400">ML/CL</td><td class="p-4">ตีนแกะ/ล้อยาง</td><td class="p-4 text-right">12-24</td><td class="p-4 text-right">5-15</td></tr>
+                                    <tr class="bg-red-900/20"><td class="p-4 font-bold text-red-400">PT</td><td class="p-4" colspan="3">ดินอินทรีย์สูง (ไม่เหมาะบดอัด)</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -249,49 +248,32 @@
                 </div>
             </section>
 
-            <!-- SECTION 4: PROCEDURES (No Image, Rich Content) -->
-            <section id="sec-procedures" class="content-sec hidden fade-in space-y-8">
+            <!-- SECTION 4: PROCEDURES -->
+            <section id="sec-procedures" class="content-sec hidden fade-in space-y-6">
                 <div class="bg-white p-10 md:p-12 rounded-[3.5rem] shadow-sm border border-slate-200">
-                    <h2 class="text-3xl font-bold text-blue-900 mb-10 flex items-center gap-3"><i data-lucide="shield" class="text-emerald-500 w-8 h-8"></i> สิ่งแวดล้อมและบ่อล้างล้อมาตรฐาน (PDF 5)</h2>
+                    <h2 class="text-3xl font-bold text-blue-900 mb-10 flex items-center gap-3"><i data-lucide="shield" class="text-emerald-500 w-8 h-8"></i> ขั้นตอนหน้างาน & บ่อล้างล้อ</h2>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <div class="space-y-6">
-                            <div class="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-200">
-                                <h4 class="font-bold text-blue-800 text-xl mb-6">สเปกทางเทคนิคบ่อล้างล้อ (Rev.0)</h4>
-                                <div class="space-y-4">
-                                    <div class="flex justify-between items-center p-4 bg-white rounded-2xl border border-slate-100">
-                                        <span class="text-slate-500 font-medium">ความยาวรวมบ่อ:</span>
-                                        <span class="text-blue-700 font-bold">23.40 เมตร</span>
-                                    </div>
-                                    <div class="flex justify-between items-center p-4 bg-white rounded-2xl border border-slate-100">
-                                        <span class="text-slate-500 font-medium">ความกว้างทางวิ่ง:</span>
-                                        <span class="text-blue-700 font-bold">4.00 เมตร</span>
-                                    </div>
-                                    <div class="flex justify-between items-center p-4 bg-white rounded-2xl border border-slate-100">
-                                        <span class="text-slate-500 font-medium">บ่อพัก Manhole:</span>
-                                        <span class="text-blue-700 font-bold">ลึก 2.00 ม. (คสล.)</span>
-                                    </div>
-                                    <div class="flex justify-between items-center p-4 bg-white rounded-2xl border border-slate-100">
-                                        <span class="text-slate-500 font-medium">วัสดุรองพื้น:</span>
-                                        <span class="text-blue-700 font-bold">ทรายบดอัดหนา 0.10 ม.</span>
-                                    </div>
-                                </div>
+                        <div class="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-200">
+                            <h4 class="font-bold text-blue-800 text-xl mb-6 flex items-center gap-2"><i data-lucide="droplet"></i> สเปกบ่อล้างล้อ Rev.0 (PDF 5)</h4>
+                            <div class="space-y-4 text-lg font-medium">
+                                <div class="flex justify-between border-b border-slate-200 pb-2"><span>ความยาวรวมบ่อ:</span> <span class="text-blue-700 font-bold">23.40 เมตร</span></div>
+                                <div class="flex justify-between border-b border-slate-200 pb-2"><span>ความกว้างทางวิ่ง:</span> <span class="text-blue-700 font-bold">4.00 เมตร</span></div>
+                                <div class="flex justify-between border-b border-slate-200 pb-2"><span>บ่อพัก Manhole:</span> <span class="text-blue-700 font-bold">ลึก 2.00 เมตร</span></div>
+                                <div class="flex justify-between"><span>วัสดุพื้นผิว:</span> <span class="text-blue-700 font-bold">ทรายบดอัด 0.10 ม.</span></div>
                             </div>
                         </div>
                         <div class="flex flex-col gap-6">
-                            <div class="p-8 bg-emerald-50 rounded-[2.5rem] border border-emerald-100">
+                            <div class="p-8 bg-emerald-50 rounded-[2.5rem] border border-emerald-100 shadow-sm">
                                 <h4 class="font-bold text-emerald-800 text-xl mb-4">ระเบียบสิ่งแวดล้อม (ข้อ 7-9)</h4>
                                 <ul class="text-base text-slate-700 space-y-4 font-medium">
-                                    <li class="flex gap-3"><i data-lucide="check-circle" class="text-emerald-600 shrink-0"></i> ต้องจัดทำบ่อล้างล้อให้เสร็จก่อนส่งงานงวดแรก</li>
-                                    <li class="flex gap-3"><i data-lucide="check-circle" class="text-emerald-600 shrink-0"></i> ห้ามเผาเศษวัสดุในโครงการโดยเด็ดขาด</li>
-                                    <li class="flex gap-3"><i data-lucide="check-circle" class="text-emerald-600 shrink-0"></i> ต้องทำคันกั้นดิน/ระบบระบายน้ำชั่วคราว ป้องกันน้ำไหลเข้าพื้นที่ข้างเคียง</li>
+                                    <li class="flex gap-3"><span>•</span> รดน้ำควบคุมฝุ่นละอองสม่ำเสมอขณะทำงาน</li>
+                                    <li class="flex gap-3"><span>•</span> กวาดเศษดินหน้าโครงการและถนนสาธารณะทุกวัน</li>
+                                    <li class="flex gap-3 font-bold text-red-600 underline"><span>•</span> ห้ามถมไล่น้ำ หรือลอกเลนไม่หมดเด็ดขาด</li>
                                 </ul>
                             </div>
-                            <div class="p-8 bg-amber-50 rounded-[2.5rem] border border-amber-200">
-                                <h4 class="font-bold text-amber-800 text-xl mb-4">แนวรั้วโครงการ (PDF 1-2)</h4>
-                                <p class="text-base text-slate-700 leading-relaxed font-medium underline decoration-amber-300">
-                                    การถมดินแนวเขตต้องใช้หลักการ Area 1 = Area 2 
-                                    เพื่อเว้นพื้นที่ทำรั้วและชดเชยการทรุดตัว โดยต้องเว้นระยะ Slope 1:1 ตามแบบกำหนด
-                                </p>
+                            <div class="p-8 bg-amber-50 rounded-[2.5rem] border border-amber-100 shadow-sm">
+                                <h4 class="font-bold text-amber-800 text-xl mb-3 italic">แนวรั้วโครงการ (Area 1=2)</h4>
+                                <p class="text-base text-slate-700 leading-relaxed font-medium">การถมดินแนวเขตต้องชดเชยการทรุดตัว โดยเว้นระยะ Slope 1:1 เพื่อทำรั้วตามแบบ PDF 1-2</p>
                             </div>
                         </div>
                     </div>
@@ -299,44 +281,27 @@
             </section>
 
             <!-- SECTION 5: CALCULATOR -->
-            <section id="sec-calculator" class="content-sec hidden fade-in max-w-5xl mx-auto">
+            <section id="sec-calculator" class="content-sec hidden fade-in max-w-4xl mx-auto">
                 <div class="bg-white p-12 md:p-16 rounded-[4rem] shadow-sm border border-slate-200">
-                    <div class="text-center mb-12">
-                        <h2 class="text-4xl font-black text-slate-900 mb-4 tracking-tighter">ระบบคำนวณดินถมเผื่อทรุด 6%</h2>
-                        <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed italic">อ้างอิงตามสัญญาข้อ 21: ผู้รับจ้างต้องเผื่อความสูง 6% โดยไม่คิดราคาเพิ่ม</p>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+                    <h2 class="text-4xl font-black text-center mb-10 tracking-tighter">คำนวณเผื่อดินทรุด 6% (ข้อ 21)</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div class="space-y-8">
                             <div class="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-200 focus-within:border-blue-600 transition-all">
                                 <label class="block text-xs font-black text-slate-400 mb-3 uppercase tracking-widest">ระดับดินเดิมเฉลี่ย (x)</label>
-                                <input type="number" id="input-existing" oninput="calculateFill()" value="0" step="0.001" class="w-full bg-transparent text-5xl font-black outline-none border-b-4 border-slate-200 focus:border-blue-600 transition-all py-2">
+                                <input type="number" id="input-existing" oninput="calculateFill()" value="0" step="0.001" class="w-full bg-transparent text-5xl font-black outline-none border-b-4 border-slate-300 focus:border-blue-600 transition-all py-2">
                             </div>
                             <div class="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-200 focus-within:border-blue-600 transition-all">
-                                <label class="block text-xs font-black text-slate-400 mb-3 uppercase tracking-widest">ระดับดินต้องการ (y)</label>
-                                <input type="number" id="input-target" oninput="calculateFill()" value="0" step="0.001" class="w-full bg-transparent text-5xl font-black outline-none border-b-4 border-slate-200 focus:border-blue-600 transition-all py-2">
+                                <label class="block text-xs font-black text-slate-400 mb-3 uppercase tracking-widest">ระดับที่ต้องการ (y)</label>
+                                <input type="number" id="input-target" oninput="calculateFill()" value="0" step="0.001" class="w-full bg-transparent text-5xl font-black outline-none border-b-4 border-slate-300 focus:border-blue-600 transition-all py-2">
                             </div>
                         </div>
-
-                        <div class="bg-gradient-to-br from-blue-800 to-indigo-950 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden flex flex-col justify-center border-4 border-white/5">
-                            <div class="relative z-10">
-                                <p class="text-blue-100 text-sm font-bold mb-4 uppercase tracking-[0.3em]">ระดับส่งงานจริง (y+h)</p>
-                                <div class="flex items-baseline gap-3 mb-8">
-                                    <span id="result-total" class="text-8xl font-black tracking-tighter leading-none">0.000</span>
-                                    <span class="text-2xl font-bold opacity-40">ม.</span>
-                                </div>
-                                <div class="grid grid-cols-2 gap-8 border-t border-white/10 pt-10">
-                                    <div>
-                                        <p class="text-xs opacity-50 uppercase font-black mb-2 tracking-widest">ดินถมสุทธิ (y-x)</p>
-                                        <p id="result-diff" class="text-2xl font-bold">0.000 ม.</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-black text-yellow-300 uppercase mb-2 tracking-widest">เผื่อทรุด 6% (h)</p>
-                                        <p id="result-h" class="text-2xl font-bold text-yellow-300">+0.000 ม.</p>
-                                    </div>
-                                </div>
+                        <div class="bg-blue-800 text-white p-12 rounded-[3.5rem] shadow-2xl flex flex-col items-center justify-center text-center">
+                            <p class="text-xs font-bold uppercase tracking-widest opacity-60 mb-4 tracking-[0.2em]">ระดับส่งงานจริง (y+h)</p>
+                            <p id="result-total" class="text-8xl font-black leading-none mb-8">0.000</p>
+                            <div class="flex gap-8 text-sm font-black border-t border-white/10 pt-8">
+                                <div><p class="opacity-50 uppercase">ดินถม (A)</p><p id="result-diff" class="text-2xl">0.000 ม.</p></div>
+                                <div class="text-yellow-400"><p class="opacity-50 uppercase">ทรุด 6% (h)</p><p id="result-h" class="text-2xl">+0.000 ม.</p></div>
                             </div>
-                            <i data-lucide="calculator" class="absolute -right-20 -bottom-20 w-80 h-80 text-white/5 rotate-12"></i>
                         </div>
                     </div>
                 </div>
@@ -344,16 +309,16 @@
 
             <!-- SECTION 6: AI ASSISTANT -->
             <section id="sec-ai" class="content-sec hidden fade-in max-w-6xl mx-auto">
-                <div class="bg-white rounded-[3.5rem] shadow-2xl border border-indigo-100 overflow-hidden flex flex-col min-h-[800px]">
+                <div class="bg-white rounded-[3.5rem] shadow-2xl border border-indigo-100 overflow-hidden flex flex-col min-h-[750px]">
                     <!-- AI Header -->
-                    <div class="bg-indigo-950 p-10 flex items-center justify-between text-white relative">
+                    <div class="bg-indigo-950 p-8 flex items-center justify-between text-white">
                         <div class="flex items-center gap-6 relative z-10">
-                            <div class="w-20 h-20 bg-white/10 rounded-[2rem] flex items-center justify-center backdrop-blur-2xl border border-white/20 shadow-2xl">
-                                <i data-lucide="bot" class="w-12 h-12 text-yellow-400"></i>
+                            <div class="w-16 h-16 bg-white/10 rounded-3xl flex items-center justify-center backdrop-blur-2xl border border-white/20 shadow-2xl">
+                                <i data-lucide="bot" class="w-10 h-10 text-yellow-400"></i>
                             </div>
                             <div>
-                                <h2 class="text-3xl font-black tracking-tight mb-1">Engineer Support AI</h2>
-                                <p class="text-sm text-indigo-300 uppercase font-bold tracking-[0.2em]">ถามข้อสงสัยจากเอกสาร TOR ทั้งหมด</p>
+                                <h2 class="text-3xl font-black tracking-tight">Engineer Support AI</h2>
+                                <p class="text-sm text-indigo-300 uppercase font-bold tracking-[0.2em]">ข้อมูลอ้างอิงจาก TOR ไฟล์ 1-5</p>
                             </div>
                         </div>
                         <div id="ai-status" class="hidden">
@@ -364,37 +329,37 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col lg:flex-row flex-1">
-                        <!-- Sidebar: Prompt Suggestions -->
-                        <div class="w-full lg:w-96 bg-slate-50 border-r border-slate-100 p-10">
+                    <div class="flex flex-col lg:flex-row flex-1 overflow-hidden">
+                        <!-- Sidebar: Samples -->
+                        <div class="w-full lg:w-96 bg-slate-50 border-r border-slate-100 p-8">
                             <h3 class="text-xs font-black text-slate-400 uppercase tracking-[0.3em] mb-8">💡 คำถามแนะนำ (คลิกเพื่อเลือก)</h3>
                             <div class="space-y-4">
-                                <button onclick="setQuery('เงื่อนไขการจ่ายเงินและระยะเวลาการจ่ายเป็นอย่างไร?')" class="w-full text-left p-6 bg-white border border-slate-200 rounded-3xl text-lg font-bold text-slate-700 hover:border-indigo-500 hover:text-indigo-700 hover:shadow-xl transition-all flex items-center gap-3">
+                                <button onclick="setQuery('เงื่อนไขการจ่ายเงินและระยะเวลารอคอยเป็นอย่างไร?')" class="w-full text-left p-6 bg-white border border-slate-200 rounded-3xl text-lg font-bold text-slate-700 hover:border-indigo-500 hover:text-indigo-700 transition-all card-hover flex items-center gap-3 shadow-sm">
                                     💰 การจ่ายเงินค่างวด
                                 </button>
-                                <button onclick="setQuery('งานถมถนนและถมแปลงมีความหนาต่างกันอย่างไร และใช้เครื่องจักรชนิดใด?')" class="w-full text-left p-6 bg-white border border-slate-200 rounded-3xl text-lg font-bold text-slate-700 hover:border-indigo-500 hover:text-indigo-700 hover:shadow-xl transition-all flex items-center gap-3">
-                                    🚜 วิธีบดอัดและเครื่องจักร
+                                <button onclick="setQuery('งานถมถนนและถมแปลงมีความหนาต่างกันอย่างไร และใช้เครื่องจักรชนิดใด?')" class="w-full text-left p-6 bg-white border border-slate-200 rounded-3xl text-lg font-bold text-slate-700 hover:border-indigo-500 hover:text-indigo-700 transition-all card-hover flex items-center gap-3 shadow-sm">
+                                    🚜 วิธีบดอัดชั้นดิน
                                 </button>
-                                <button onclick="setQuery('หากผู้รับจ้างไม่ทำตามเงื่อนไขในใบอนุญาตถมดิน จะถูกลงโทษอย่างไร?')" class="w-full text-left p-6 bg-white border border-slate-200 rounded-3xl text-lg font-bold text-slate-700 hover:border-indigo-500 hover:text-indigo-700 hover:shadow-xl transition-all flex items-center gap-3">
+                                <button onclick="setQuery('หากผู้รับจ้างไม่ทำตามเงื่อนไขในใบอนุญาตถมดิน จะถูกลงโทษอย่างไร?')" class="w-full text-left p-6 bg-white border border-slate-200 rounded-3xl text-lg font-bold text-slate-700 hover:border-indigo-500 hover:text-indigo-700 transition-all card-hover flex items-center gap-3 shadow-sm">
                                     ⚖️ บทลงโทษทำผิดสัญญา
                                 </button>
-                                <button onclick="setQuery('ต้องทำบ่อล้างล้อให้เสร็จเมื่อไหร่ และมีขนาดเท่าไหร่?')" class="w-full text-left p-6 bg-white border border-slate-200 rounded-3xl text-lg font-bold text-slate-700 hover:border-indigo-500 hover:text-indigo-700 hover:shadow-xl transition-all flex items-center gap-3">
-                                    🚿 รายละเอียดบ่อล้างล้อ
+                                <button onclick="setQuery('บ่อล้างล้อมาตรฐาน Rev.0 ต้องมีความกว้างยาวลึกเท่าไหร่?')" class="w-full text-left p-6 bg-white border border-slate-200 rounded-3xl text-lg font-bold text-slate-700 hover:border-indigo-500 hover:text-indigo-700 transition-all card-hover flex items-center gap-3 shadow-sm">
+                                    🚿 สเปกบ่อล้างล้อ
                                 </button>
                             </div>
                         </div>
 
                         <!-- Chat Container -->
-                        <div class="flex-1 flex flex-col min-h-[500px] bg-white">
+                        <div class="flex-1 flex flex-col min-h-[500px] bg-white relative">
                             <div id="chat-window" class="flex-1 p-10 overflow-y-auto space-y-8 bg-slate-50/30">
-                                <!-- Bot greeting -->
+                                <!-- Bot initial message -->
                                 <div id="greeting-msg" class="flex gap-5 max-w-3xl">
-                                    <div class="w-12 h-12 bg-indigo-100 rounded-2xl flex items-center justify-center shrink-0 border border-indigo-200">
+                                    <div class="w-12 h-12 bg-indigo-100 rounded-2xl flex items-center justify-center shrink-0 shadow-sm border border-indigo-200">
                                         <i data-lucide="bot" class="w-7 h-7 text-indigo-700"></i>
                                     </div>
-                                    <div class="bg-white p-8 rounded-[2rem] text-lg border border-slate-200 shadow-sm text-slate-700 leading-relaxed font-medium">
-                                        สวัสดีครับ ผมพร้อมให้ข้อมูล TOR แล้ว <br><br>
-                                        กรุณาเลือกคำถามด้านซ้าย หรือพิมพ์คำถามในช่องด้านล่าง แล้วกดปุ่ม <b>"ส่งคำถาม"</b> เพื่อเริ่มต้นครับ
+                                    <div class="bg-white p-8 rounded-[2.5rem] text-lg border border-slate-200 shadow-sm text-slate-700 leading-relaxed font-medium">
+                                        สวัสดีครับ ผมพร้อมให้ข้อมูล TOR แล้วครับ <br><br>
+                                        กรุณา <b>เลือกคำถามด้านซ้าย</b> หรือ <b>พิมพ์คำถามเอง</b> แล้วกดปุ่ม <b>"ส่งคำถาม"</b> ด้านล่างครับ
                                     </div>
                                 </div>
                                 <div id="chat-messages" class="space-y-8"></div>
@@ -404,7 +369,7 @@
                             <div class="p-10 bg-white border-t border-slate-100">
                                 <div class="max-w-4xl mx-auto flex gap-5">
                                     <input type="text" id="ai-input" oninput="toggleSendBtn()" placeholder="พิมพ์คำถามที่นี่..." class="flex-1 p-6 bg-slate-50 border-2 border-slate-100 rounded-[2rem] focus:ring-4 focus:ring-indigo-100 focus:border-indigo-600 outline-none transition-all shadow-inner text-lg font-medium">
-                                    <button onclick="askAI()" id="btn-send-ai" disabled class="btn-send bg-indigo-600 text-white px-10 rounded-[2rem] hover:bg-indigo-700 shadow-2xl shadow-indigo-200 transition-all flex items-center gap-3 font-black text-lg active:scale-95 group">
+                                    <button onclick="askAI()" id="btn-send-ai" disabled class="btn-send bg-indigo-600 text-white px-10 rounded-[2rem] hover:bg-indigo-700 shadow-2xl transition-all flex items-center gap-3 font-black text-lg active:scale-95 group">
                                         <i data-lucide="send" class="w-6 h-6 group-hover:translate-x-1 transition-transform"></i>
                                         <span>ส่งคำถาม</span>
                                     </button>
@@ -419,76 +384,47 @@
 
     <!-- Footer -->
     <footer class="bg-slate-950 text-white py-24 px-8 border-t border-white/5">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
-            <div class="space-y-6">
-                <h4 class="text-2xl font-black tracking-tighter">Digital TOR Handbook</h4>
-                <p class="text-base text-slate-400 leading-relaxed font-medium">จัดทำขึ้นเพื่อใช้ในการประมูลและชี้แจงการทำงานสำหรับโครงการใหม่ เพื่อความเป็นธรรมและถูกต้องตามมาตรฐานวิศวกรรม</p>
-            </div>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 text-center md:text-left">
             <div>
-                <h4 class="text-xs font-black text-slate-500 uppercase tracking-[0.4em] mb-8">Reference Documents</h4>
-                <ul class="text-sm text-slate-400 space-y-4 font-bold">
-                    <li>• TOR เงื่อนไขงานถมดิน (Rev.1 26/02/2026)</li>
-                    <li>• แบบมาตรฐานการบดอัด (Rev.251216)</li>
-                    <li>• ตาราง OMC & Dry Density (PDF 3)</li>
-                    <li>• แบบบ่อล้างล้อ (PDF 5)</li>
-                </ul>
+                <h4 class="text-2xl font-black mb-4">Digital TOR Handbook</h4>
+                <p class="text-base text-slate-400 font-medium">ระบบวิเคราะห์ข้อมูลสัญญาและมาตรฐานวิศวกรรม เพื่อความถูกต้องแม่นยำในการก่อสร้างและประมูลงาน</p>
             </div>
-            <div>
-                <h4 class="text-xs font-black text-slate-500 uppercase tracking-[0.4em] mb-8">System Status</h4>
-                <div class="bg-white/5 p-8 rounded-[2rem] border border-white/5 space-y-4">
-                    <p class="text-xs font-medium text-slate-400">Powered by <b>Gemini 2.5 Flash</b> | การวิเคราะห์เอกสารแบบเรียลไทม์</p>
-                    <div class="flex items-center gap-3 pt-4">
-                        <div class="w-3 h-3 bg-emerald-500 rounded-full shadow-lg shadow-emerald-500/50"></div>
-                        <span class="text-[10px] font-black uppercase tracking-widest text-emerald-400">All Modules Ready</span>
-                    </div>
+            <div class="flex flex-col items-center md:items-end justify-center">
+                <p class="text-[10px] font-black uppercase tracking-[0.5em] text-slate-600 mb-2">System Status</p>
+                <div class="flex items-center gap-3 bg-white/5 px-6 py-3 rounded-2xl border border-white/5 shadow-2xl">
+                    <div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-lg shadow-emerald-500/50"></div>
+                    <span class="text-xs font-black uppercase tracking-widest text-emerald-400">All Modules Ready</span>
                 </div>
             </div>
-        </div>
-        <div class="max-w-7xl mx-auto mt-24 pt-10 border-t border-white/5 text-center text-[10px] text-slate-600 font-black uppercase tracking-[0.5em]">
-            © 2026 Interactive Construction Management | Digital Standards Center
         </div>
     </footer>
 
     <script>
-        // Initialize Icons
         lucide.createIcons();
-
-        // Gemini API Configuration
         const apiKey = ""; 
         const modelId = "gemini-2.5-flash-preview-09-2025";
 
-        // Tab Navigation
         function switchTab(tabId) {
             document.querySelectorAll('.content-sec').forEach(sec => sec.classList.add('hidden'));
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('tab-active', 'ai-tab-active');
-            });
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('tab-active', 'ai-tab-active'));
             
             document.getElementById(`sec-${tabId}`).classList.remove('hidden');
             const btn = document.getElementById(`tab-${tabId}`);
-            if (tabId === 'ai') {
-                btn.classList.add('ai-tab-active');
-            } else {
-                btn.classList.add('tab-active');
-            }
-            window.scrollTo({ top: document.querySelector('main').offsetTop - 40, behavior: 'smooth' });
+            if (tabId === 'ai') btn.classList.add('ai-tab-active');
+            else btn.classList.add('tab-active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Calculator Logic
         function calculateFill() {
             const existing = parseFloat(document.getElementById('input-existing').value) || 0;
             const target = parseFloat(document.getElementById('input-target').value) || 0;
-            
             const diff = Math.max(0, target - existing);
             const allowance = diff * 0.06;
-            const total = target + allowance;
-            
-            document.getElementById('result-total').innerText = total.toFixed(3);
+            document.getElementById('result-total').innerText = (target + allowance).toFixed(3);
             document.getElementById('result-diff').innerText = diff.toFixed(3);
             document.getElementById('result-h').innerText = '+' + allowance.toFixed(3);
         }
 
-        // Gemini API Helper
         async function callGemini(prompt, systemPrompt) {
             const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
             let retries = 0;
@@ -512,13 +448,18 @@
                     await new Promise(r => setTimeout(r, Math.pow(2, retries) * 1000));
                 }
             }
-            return "ไม่สามารถติดต่อ AI ได้ กรุณาลองใหม่ภายหลัง";
+            return "ไม่สามารถติดต่อ AI ได้ในขณะนี้";
         }
 
-        // AI Chat Functionality
         function toggleSendBtn() {
             const input = document.getElementById('ai-input').value.trim();
             document.getElementById('btn-send-ai').disabled = (input === "");
+        }
+
+        function setQuery(text) {
+            document.getElementById('ai-input').value = text;
+            toggleSendBtn();
+            document.getElementById('ai-input').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
         async function askAI() {
@@ -530,21 +471,12 @@
 
             if (!query) return;
 
-            // Clear previous history and hide greeting as requested
             chatMessages.innerHTML = '';
             greeting.classList.add('hidden');
             
-            // Add user message bubble
             const userDiv = document.createElement('div');
             userDiv.className = "flex gap-5 max-w-3xl ml-auto flex-row-reverse fade-in";
-            userDiv.innerHTML = `
-                <div class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center shrink-0">
-                    <i data-lucide="user" class="w-7 h-7 text-white"></i>
-                </div>
-                <div class="bg-indigo-600 text-white p-8 rounded-[2.5rem] text-lg shadow-2xl leading-relaxed font-medium">
-                    ${query}
-                </div>
-            `;
+            userDiv.innerHTML = `<div class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center shrink-0 shadow-2xl"><i data-lucide="user" class="w-7 h-7 text-white"></i></div><div class="bg-indigo-600 text-white p-8 rounded-[2.5rem] text-lg shadow-2xl font-medium leading-relaxed">${query}</div>`;
             chatMessages.appendChild(userDiv);
             input.value = "";
             toggleSendBtn();
@@ -552,28 +484,26 @@
 
             status.classList.remove('hidden');
             
-            const systemPrompt = `คุณคือวิศวกรวิเคราะห์สัญญาจ้างถมดิน (TOR) จากไฟล์ PDF 5 ฉบับ:
-            - ดิน: pH 6.0-7.5, EC <= 2, ห้ามเลน, Lab 3 ชุด
-            - บดอัด: ถนน 0.60ม. (95%), แปลง 1.20ม. (D4 x 3 รอบ)
-            - บ่อล้างล้อ: ยาว 23.4ม. ลึก 2ม. ต้องเสร็จก่อนงวดแรก
-            - การเงิน: จ่ายภายใน 7 วันหลังตรวจผ่าน (วันอังคาร)
-            - บทลงโทษ: ยึดเงินประกันหากทำผิดใบอนุญาตถมดิน
-            - วัดระดับ: ทุก 10ม., เผื่อดินทรุด 6% (ฟรี), แนวรั้ว Area 1=2
-            ตอบเป็นภาษาไทยที่สุภาพ เป็นทางการ และชัดเจน`;
+            const systemPrompt = `คุณคือวิศวกรวิเคราะห์สัญญา TOR งานถมดิน ให้ข้อมูลที่ละเอียดและถูกต้อง 100% ตามเอกสาร 5 ไฟล์นี้:
+            1. คุณภาพดิน: pH 6.0-7.5, EC <= 2, ห้ามดินเลน/ทราย, ทดสอบแล็บ 3 ชุด/แหล่ง
+            2. การบดอัด: ถนนหนา 0.60ม. (95% Std Proctor), แปลงหนา 1.20ม. (ย่ำ 3 รอบ)
+            3. บ่อล้างล้อ: ยาว 23.4ม., ลึก 2ม. (ตามแบบ Rev.0)
+            4. การเงิน: จ่ายภายใน 7 วันหลังตรวจผ่าน (อังคารถัดไป), ประกันผลงาน 12 เดือน (5%)
+            5. การวัดระดับ: ทุก 10 เมตร, เผื่อทรุด 6% (ฟรี), พื้นที่แนวรั้ว Area 1=2
+            ตอบเป็นภาษาไทยที่เป็นมืออาชีพ สุภาพ และชัดเจน อ้างอิงข้อสัญญาหากทำได้`;
 
             const response = await callGemini(query, systemPrompt);
             status.classList.add('hidden');
 
-            // Add bot message bubble
             const botDiv = document.createElement('div');
             botDiv.className = "flex gap-5 max-w-3xl fade-in";
             botDiv.innerHTML = `
-                <div class="w-12 h-12 bg-indigo-100 rounded-2xl flex items-center justify-center shrink-0 border border-indigo-200">
+                <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
                     <i data-lucide="bot" class="w-7 h-7 text-indigo-700"></i>
                 </div>
                 <div class="bg-white p-8 rounded-[2.5rem] text-lg border border-slate-200 shadow-sm text-slate-700 leading-relaxed font-medium">
-                    <div class="font-black text-indigo-600 text-[10px] uppercase tracking-[0.4em] mb-4 flex items-center gap-2">
-                        <i data-lucide="sparkles" class="w-4 h-4 text-yellow-500"></i> AI Verified Analysis
+                    <div class="font-black text-indigo-600 text-[10px] uppercase tracking-[0.4em] mb-4 flex items-center gap-1">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-yellow-500"></i> AI Verified Response
                     </div>
                     ${response.replace(/\n/g, '<br>')}
                 </div>
@@ -583,47 +513,22 @@
             lucide.createIcons();
         }
 
-        function setQuery(text) {
-            document.getElementById('ai-input').value = text;
-            toggleSendBtn();
-            // Scroll to input to show user where the text went
-            document.getElementById('ai-input').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        // Soil Analysis Logic
         async function analyzeSoil() {
             const input = document.getElementById('soil-lab-input').value.trim();
             const resultBox = document.getElementById('soil-analysis-result');
             const btn = document.getElementById('soil-analyze-btn');
-
             if (!input) return;
-
             btn.disabled = true;
-            btn.innerHTML = '<i data-lucide="loader-2" class="animate-spin w-6 h-6"></i> กำลังตรวจสอบ...';
+            btn.innerHTML = '<i data-lucide="loader-2" class="animate-spin w-6 h-6"></i> กำลังวิเคราะห์...';
             lucide.createIcons();
-
-            const systemPrompt = "คุณคือวิศวกรตรวจสอบมาตรฐานดินตาม TOR: pH 6.0-7.5 และ EC <= 2 บอกว่า 'ผ่าน' หรือ 'ไม่ผ่าน' และแนะนำสั้นๆ ตอบภาษาไทย";
-            const response = await callGemini(`ผลดิน: ${input}`, systemPrompt);
-
-            resultBox.innerHTML = `
-                <div class="fade-in text-left space-y-4">
-                    <p class="text-yellow-400 font-black text-xs uppercase tracking-[0.3em] flex items-center gap-2">
-                        <i data-lucide="clipboard-check" class="w-5 h-5 text-emerald-400"></i> รายงานวิเคราะห์
-                    </p>
-                    <div class="text-indigo-50 leading-relaxed text-lg font-medium">${response.replace(/\n/g, '<br>')}</div>
-                </div>
-            `;
-            
+            const response = await callGemini(`วิเคราะห์ผลดินนี้: ${input}`, "คุณคือวิศวกรวิเคราะห์มาตรฐานดินตาม TOR: pH ต้อง 6.0-7.5 และ EC ไม่เกิน 2 บอกว่าผ่านหรือไม่และแนะนำสั้นๆ ภาษาไทย");
+            resultBox.innerHTML = `<div class="fade-in text-left space-y-4"><p class="text-yellow-400 font-black text-xs uppercase tracking-[0.4em] flex items-center gap-2"><i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i> รายงานวินิจฉัยโดย AI</p><div class="text-indigo-50 leading-relaxed text-lg font-medium">${response.replace(/\n/g, '<br>')}</div></div>`;
             btn.disabled = false;
             btn.innerHTML = '<i data-lucide="zap" class="w-6 h-6"></i> วิเคราะห์มาตรฐานดิน';
             lucide.createIcons();
         }
 
-        // Initial View
-        window.onload = () => {
-            switchTab('overview');
-            calculateFill();
-        };
+        window.onload = () => { switchTab('overview'); calculateFill(); };
     </script>
 </body>
 </html>
